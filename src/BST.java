@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 /**
  * An Integer Binary Search Tree
- * @author: Your Name Here
- * @version: Date
+ * @author: Ananya Goel
+ * @version: 12/10/2024
  */
 
 public class BST {
