@@ -48,7 +48,23 @@ public class BST {
      */
     public boolean search(int val) {
         // TODO: Complete the search function
-        return false;
+        // Overload the function to make it easier to do it recursively
+        return search(val, this.getRoot());
+    }
+
+    // Helper method for the search function that also takes in a node
+    public boolean search(int val, BSTNode node) {
+        // Base cases
+        // If the values are the same, return true
+        if (node.getVal() == val) {
+            return true;
+        }
+        // If the left or right nodes are null, return false
+        if (node.getLeft() == null || node.getRight() == null) {
+            return false;
+        }
+        // Recurse and check the left and right nodes
+        return (search(val, node.getLeft()) || search(val, node.getRight()));
     }
 
     /**
