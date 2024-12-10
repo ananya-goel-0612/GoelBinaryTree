@@ -72,7 +72,14 @@ public class BST {
      */
     public ArrayList<BSTNode> getInorder() {
         // TODO: Complete inorder traversal
-        return null;
+        // Creates the array list that will get returned
+        ArrayList<BSTNode> inorder = new ArrayList<BSTNode>();
+        return getInorder(this.getRoot(), inorder);
+    }
+
+    // Helper method for inorder
+    public ArrayList<BSTNode> getInorder(BSTNode node, ArrayList<BSTNode> inorder) {
+
     }
 
     /**
@@ -99,6 +106,7 @@ public class BST {
      */
     public void insert(int val) {
         // TODO: Complete insert
+
     }
 
     /**
