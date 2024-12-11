@@ -71,6 +71,7 @@ public class BST {
      * @return ArrayList of BSTNodes in inorder
      */
     public ArrayList<BSTNode> getInorder() {
+        // TODO: Complete inorder traversal
         // Creates the array list that will get returned
         ArrayList<BSTNode> inorder = new ArrayList<BSTNode>();
         return getInorder(this.getRoot(), inorder);
@@ -78,34 +79,65 @@ public class BST {
 
     // Helper method for inorder
     public ArrayList<BSTNode> getInorder(BSTNode node, ArrayList<BSTNode> inorder) {
-        // TODO: Complete inorder traversal
-
+        // Recurses as long as the node is not null
+        if (node != null) {
+            // Go to the left node
+            getInorder(node.getLeft(), inorder);
+            // Add the left node to the array
+            inorder.add(node);
+            // Go to the right node
+            getInorder(node.getRight(), inorder);
+        }
+        // Once you reach a null node, return the array
+        return inorder;
     }
 
     /**
      * @return ArrayList of BSTNodes in preorder
      */
     public ArrayList<BSTNode> getPreorder() {
+        // TODO: Complete preorder traversal
         ArrayList<BSTNode> preorder = new ArrayList<BSTNode>();
         return getPreorder(this.getRoot(), preorder);
     }
 
+    // Helper method for preorder
     public ArrayList<BSTNode> getPreorder(BSTNode node, ArrayList<BSTNode> preorder) {
-        // TODO: Complete preorder traversal
-
+        // As long as the node isn't null, recurse
+        if (node != null) {
+            // Add the root node
+            preorder.add(node);
+            // Get the left nodes
+            getPreorder(node.getLeft(), preorder);
+            // Get the right nodes
+            getPreorder(node.getRight(), preorder);
+        }
+        // Return the array once a null node is reached
+        return preorder;
     }
 
     /**
      * @return ArrayList of BSTNodes in postorder
      */
     public ArrayList<BSTNode> getPostorder() {
+        // TODO: Complete postorder traversal
         ArrayList<BSTNode> postorder = new ArrayList<BSTNode>();
         return getPostOrder(this.getRoot(), postorder);
     }
 
+    // Helper method for postorder
     public ArrayList<BSTNode> getPostOrder(BSTNode node, ArrayList<BSTNode> postorder) {
-        // TODO: Complete postorder traversal
-
+        // Recurses as long as the node is not null
+        if (node != null) {
+            // Get all the left nodes
+            getPostOrder(node.getLeft(), postorder);
+            // Get all the right nodes
+            getPostOrder(node.getRight(), postorder);
+            // Add to the array
+            postorder.add(node);
+        }
+        // Return the array
+        return postorder;
     }
 
     /**
@@ -116,7 +148,30 @@ public class BST {
      */
     public void insert(int val) {
         // TODO: Complete insert
+        this.root = insert(this.root, val);
+    }
 
+    // Helper method for inserting a new node
+    private BSTNode insert(BSTNode node, int val) {
+        if (node == null) {
+            // Create a new node if the current node is null
+            return new BSTNode(val);
+        }
+
+        // If the node's value is greater than the value,
+        // Go to the left
+        if (val < node.getVal()) {
+            // Insert in the left subtree
+            node.setLeft(insert(node.getLeft(), val));
+        }
+        // Otherwise if the node's value is less than the value,
+        // Go to the right
+        else if (val > node.getVal()) {
+            // Insert in the right subtree
+            node.setRight(insert(node.getRight(), val));
+        }
+        // If the value already exists, don't insert it again
+        return node;
     }
 
     /**
