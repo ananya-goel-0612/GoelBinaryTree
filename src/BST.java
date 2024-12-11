@@ -71,7 +71,6 @@ public class BST {
      * @return ArrayList of BSTNodes in inorder
      */
     public ArrayList<BSTNode> getInorder() {
-        // TODO: Complete inorder traversal
         // Creates the array list that will get returned
         ArrayList<BSTNode> inorder = new ArrayList<BSTNode>();
         return getInorder(this.getRoot(), inorder);
@@ -79,6 +78,7 @@ public class BST {
 
     // Helper method for inorder
     public ArrayList<BSTNode> getInorder(BSTNode node, ArrayList<BSTNode> inorder) {
+        // TODO: Complete inorder traversal
 
     }
 
@@ -86,16 +86,26 @@ public class BST {
      * @return ArrayList of BSTNodes in preorder
      */
     public ArrayList<BSTNode> getPreorder() {
+        ArrayList<BSTNode> preorder = new ArrayList<BSTNode>();
+        return getPreorder(this.getRoot(), preorder);
+    }
+
+    public ArrayList<BSTNode> getPreorder(BSTNode node, ArrayList<BSTNode> preorder) {
         // TODO: Complete preorder traversal
-        return null;
+
     }
 
     /**
      * @return ArrayList of BSTNodes in postorder
      */
     public ArrayList<BSTNode> getPostorder() {
+        ArrayList<BSTNode> postorder = new ArrayList<BSTNode>();
+        return getPostOrder(this.getRoot(), postorder);
+    }
+
+    public ArrayList<BSTNode> getPostOrder(BSTNode node, ArrayList<BSTNode> postorder) {
         // TODO: Complete postorder traversal
-        return null;
+
     }
 
     /**
