@@ -186,18 +186,23 @@ public class BST {
 
     // Helper function
     public boolean isValidBST(BSTNode node, BSTNode left, BSTNode right) {
+        // If any nodes are null, return true because it hasn't needed to return false yet
         if (node == null || left == null || right == null) {
             return true;
         }
 
+        // If the left node is greater than the root, return false
         if (left.getVal() > node.getVal()) {
             return false;
         }
 
+        // If the right node is greater than the root, return false
         if (right.getVal() < node.getVal()) {
             return false;
         }
 
+        // Call the function again, using the left and right nodes as the roots
+        // If any of those calls returns false, return false
         return isValidBST(left, left.getLeft(), left.getRight()) &&
                 isValidBST(right, right.getLeft(), right.getRight());
     }
