@@ -181,7 +181,18 @@ public class BST {
      */
     public boolean isValidBST() {
         // TODO: Optional Challenge!
-        return false;
+        return isValidBST(this.root, this.root.getLeft(), this.root.getRight());
+    }
+
+    // Helper function
+    public boolean isValidBST(BSTNode node, BSTNode left, BSTNode right) {
+        if (left.getVal() > node.getVal()) {
+            return false;
+        }
+        if (right.getVal() < node.getVal()) {
+            return false;
+        }
+
     }
 
     public static void main(String[] args) {
